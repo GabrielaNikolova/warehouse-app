@@ -26,6 +26,9 @@ function App() {
                     <Route path={routes.clients} element={<Clients />} />
                     <Route path={routes.clientsCreate} element={<ClientForm />} />
                     <Route path={routes.clientsEdit} element={<ClientEditForm />} />
+                    <Route path={routes.clients} element={<Clients />} />
+                    <Route path={routes.clientsCreate} element={<ClientForm />} />
+                    <Route path={routes.clientsEdit} element={<ClientEditForm />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

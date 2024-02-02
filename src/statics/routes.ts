@@ -5,10 +5,13 @@ export const routes = {
     clientsCreate: '/clients/create',
     clientsEdit: '/clients/:id',
     warehouses: '/warehouses',
+    warehousesCreate: '/warehouses/create',
+    warehousesEdit: '/warehouses/:id',
     products: '/products',
     operations: '/operations',
     invoices: '/invoices',
     login: '/login',
     register: '/register',
     logout: '/logout',
+    notFound: '/*',
 };
