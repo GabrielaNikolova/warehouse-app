@@ -15,8 +15,8 @@ const create = async ({ name, address, accountablePerson, uic }: Client): Promis
     return await request.post(`${baseUrl}/create`, { name, address, accountablePerson, uic });
 };
 
-const update = async ({ id, name, address, accountablePerson, uic }: Client): Promise<Client> => {
-    return await request.post(`${baseUrl}/${id}`, { name, address, accountablePerson, uic });
+const update = async ({ id, name, address, accountablePerson, uic }: Partial<Client>): Promise<Client> => {
+    return await request.patch(`${baseUrl}/${id}`, { name, address, accountablePerson, uic });
 };
 
 const delClient = async (id: string) => {

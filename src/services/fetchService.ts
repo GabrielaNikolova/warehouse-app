@@ -37,11 +37,14 @@ const universalRequest = async (method: string, url: string, data) => {
             });
 
             const fetchedData = await response.json();
-            console.log(fetchedData);
+            if (fetchedData.error) {
+                const backendError = fetchedData.error.message[0];
+                
+                return { error: backendError };
+            }
 
             return fetchedData;
         } catch (error) {
-            console.error('Error:', error);
         }
     }
 };

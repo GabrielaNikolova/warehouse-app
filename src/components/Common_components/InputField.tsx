@@ -12,6 +12,7 @@ interface InputProps {
     errorMessage?: string;
     disabled?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    readonly?: boolean;
 }
 
 const InputStyle = styled.div`

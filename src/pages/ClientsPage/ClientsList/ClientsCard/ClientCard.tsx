@@ -1,4 +1,4 @@
-import { Client } from './Clients.static';
+import { Client } from './ClientCard.static';
 
 export default function Card(props: Client) {
     return (

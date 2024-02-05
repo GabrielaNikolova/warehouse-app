@@ -9,8 +9,8 @@ import Clients from './pages/ClientsPage/ClientsPage';
 import { AuthProvider } from './contexts/AuthContext/AuthContext';
 import { routes } from './statics/routes';
 import { GlobalStyle } from './components/Common_components/Global.style';
-import ClientForm from './pages/ClientsPage/ClientForm';
-import ClientEditForm from './pages/ClientsPage/ClientEditForm';
+import ClientForm from './pages/ClientsPage/ClientsCreate/ClientCreateForm';
+import ClientEditForm from './pages/ClientsPage/ClientsUpdate/ClientEditForm';
 
 function App() {
     return (
@@ -23,9 +23,6 @@ function App() {
                     <Route path={routes.login} element={<LoginPage />} />
                     <Route path={routes.register} element={<RegisterPage />} />
                     <Route path={routes.logout} element={<Logout />} />
-                    <Route path={routes.clients} element={<Clients />} />
-                    <Route path={routes.clientsCreate} element={<ClientForm />} />
-                    <Route path={routes.clientsEdit} element={<ClientEditForm />} />
                     <Route path={routes.clients} element={<Clients />} />
                     <Route path={routes.clientsCreate} element={<ClientForm />} />
                     <Route path={routes.clientsEdit} element={<ClientEditForm />} />
