@@ -1,4 +1,3 @@
-
 interface AuthToken {
     access_token: string;
 }
@@ -21,6 +20,13 @@ const universalRequest = async (method: string, url: string, data) => {
         try {
             const response = await fetch(url, { headers });
             const fetchedData = await response.json();
+            if (fetchedData.error) {
+                const backendError = fetchedData.error.message;
+
+                console.log("backend", backendError);
+                
+                return { error: backendError };
+            }
             return fetchedData;
         } catch (error) {
             console.error('Error:', error);
@@ -38,14 +44,13 @@ const universalRequest = async (method: string, url: string, data) => {
 
             const fetchedData = await response.json();
             if (fetchedData.error) {
-                const backendError = fetchedData.error.message[0];
-                
+                const backendError = fetchedData.error.message;
+                console.log("backend", backendError);
                 return { error: backendError };
             }
 
             return fetchedData;
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 };
 

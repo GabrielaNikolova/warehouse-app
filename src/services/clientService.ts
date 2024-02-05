@@ -1,4 +1,5 @@
-import { Client } from '../pages/ClientsPage/Clients.static';
+
+import { Client } from '../pages/ClientsPage/ClientsList/ClientsList.static';
 import * as request from './fetchService';
 
 const baseUrl = 'http://localhost:3000/client';
@@ -20,7 +21,7 @@ const update = async ({ id, name, address, accountablePerson, uic }: Partial<Cli
 };
 
 const delClient = async (id: string) => {
-    console.log('idddd' + id);
+    console.log('ID' + id);
 
     return await request.del(`${baseUrl}/${id}`, {});
 };

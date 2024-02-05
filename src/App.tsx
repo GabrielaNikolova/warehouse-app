@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage';
-import RegisterPage from './pages/RegisterPage';
-import Logout from './components/User/Logout/Logout.logic';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import Logout from './components/Logout/Logout.logic';
 import Clients from './pages/ClientsPage/ClientsPage';
 import { AuthProvider } from './contexts/AuthContext/AuthContext';
 import { routes } from './statics/routes';

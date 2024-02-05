@@ -2,11 +2,13 @@ import { ReactNode, createContext, useContext, useState } from 'react';
 import { login, register, logout } from '../../services/userService';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import { User } from '../../pages/LoginPage/LoginForm/LoginForm.static';
+import { UserRegister } from '../../pages/RegisterPage/RegisterForm/RegisterForm.static';
 
 interface AuthContextType {
     isAuthenticated: boolean;
-    loginUser: (email: string, password: string) => Promise<void>;
-    registerUser: (username: string, email: string, password: string) => Promise<void>;
+    loginUser: (user: User) => Promise<User | undefined>;
+    registerUser: (user: UserRegister) => Promise<UserRegister | undefined>;
     logoutUser: () => void;
 }
 
@@ -45,23 +47,31 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         return exp < currentTime;
     }
 
-    const loginUser = async (email: string, password: string) => {
-        const auth = await login(email, password);
-        console.log(auth);
+    const loginUser = async (user: User) => {
+        try {
+            const auth: User = await login(user);
+            if (auth.error) {
+                return auth;
+            }
+            console.log('auth', auth);
 
-        if (auth.access_token) {
-            localStorage.setItem('access_token', JSON.stringify(auth));
-            setIsAuthenticated(true);
-
-            navigate('/');
-        }
+            if (auth.access_token) {
+                localStorage.setItem('access_token', JSON.stringify(auth));
+                setIsAuthenticated(true);
+                return auth;
+            }
+        } catch (error) {}
     };
 
-    const registerUser = async (username: string, email: string, password: string) => {
-        const reg = await register(username, email, password);
+    const registerUser = async (user: UserRegister) => {
+        const reg = await register(user);
         console.log(reg);
-        if (reg.isSuccess !== false) {
-            loginUser(email, password);
+        if (reg.error) {
+            return reg;
+        }
+        if (!reg.error) {
+            await loginUser(user);
+            navigate('/clients');
         }
     };
 

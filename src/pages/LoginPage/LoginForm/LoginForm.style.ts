@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const FormStyled = styled.form`
-   // margin: 1rem auto;
+const LoginFormStyled = styled.form`
+    // margin: 1rem auto;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -18,4 +18,11 @@ const FormStyled = styled.form`
         text-align: center;
     }
 `;
-export default FormStyled;
+
+const NavLinkLogin = styled.a`
+    color: var(--white-smoke);
+    padding: 0.3rem;
+    text-align: center;
+    font-size: var( --font-size-sm);
+`;
+export { LoginFormStyled, NavLinkLogin };
