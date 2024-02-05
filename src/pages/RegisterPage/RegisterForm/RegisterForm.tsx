@@ -1,8 +1,8 @@
-import InputField from '../../../components/Common_components/InputField';
 import FormButton from '../../../components/Common_components/Button/Button';
 import register from './RegisterForm.logic';
 import { NavLinkRegister, RegisterFormStyled } from './RegisterForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
+import InputField from '../../../components/Common_components/InputField/InputField';
 
 export default function RegisterForm() {
     const { formik } = register();

@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../../../components/Common_components/Button/Button';
 import { Container } from '../../../components/Common_components/Container.style';
-import InputField from '../../../components/Common_components/InputField';
 
 import { createClient } from './ClientCreateForm.logic';
 import { ClientCreateFormStyled } from './ClientCreateForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
+import InputField from '../../../components/Common_components/InputField/InputField';
 
 export default function ClientCreateForm() {
     const navigate = useNavigate();

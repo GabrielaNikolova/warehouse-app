@@ -1,13 +1,12 @@
-import InputField from '../../../components/Common_components/InputField';
 import FormButton from '../../../components/Common_components/Button/Button';
 
 import login from './LoginForm.logic';
 import { LoginFormStyled, NavLinkLogin } from './LoginForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
+import InputField from '../../../components/Common_components/InputField/InputField';
 
 export default function LoginForm() {
     const { formik } = login();
-    // const { formik } = createClient();
 
     return (
         <div className="page-center">

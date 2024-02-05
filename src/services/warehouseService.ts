@@ -1,4 +1,4 @@
-import { Warehouse } from '../pages/WarehousePage/Warehouse.static';
+import { Warehouse } from '../pages/WarehousePage/WarehouseCreate/WarehouseCreateForm.static';
 import * as request from './fetchService';
 
 const baseUrl = 'http://localhost:3000/warehouse';

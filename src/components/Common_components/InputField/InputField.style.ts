@@ -1,19 +1,4 @@
-import { ChangeEvent } from 'react';
-import styled from 'styled-components';
-
-interface InputProps {
-    type?: string;
-    label?: string;
-    value?: string | number;
-    defaultValue?: string | number;
-    name?: string;
-    placeholder?: string;
-    error?: boolean;
-    errorMessage?: string;
-    disabled?: boolean;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-    readonly?: boolean;
-}
+import styled from "styled-components";
 
 const InputStyle = styled.div`
     margin-top: 1rem;
@@ -62,22 +47,4 @@ const InputStyle = styled.div`
         margin-top: 0.4rem;
     }
 `;
-
-export default function InputField({ ...props }: InputProps) {
-    return (
-        <InputStyle>
-            <label htmlFor={props.label}>{props.label}</label>
-            <input
-                type={props.type}
-                id={props.label}
-                value={props.value}
-                defaultValue={props.defaultValue}
-                name={props.name}
-                placeholder={props.placeholder}
-                onChange={props.onChange}
-                disabled={props.disabled}
-            />
-            {props.error && <p className="error">{props.errorMessage}</p>}
-        </InputStyle>
-    );
-}
+export default InputStyle;
