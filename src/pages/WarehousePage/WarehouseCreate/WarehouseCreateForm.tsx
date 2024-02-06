@@ -5,7 +5,10 @@ import { createWarehouse } from './WarehouseCreateForm.logic';
 import { WarehouseCreateFormStyled } from './WarehouseCreateForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
 import InputField from '../../../components/Common_components/InputField/InputField';
-import { Field } from 'formik';
+import SelectField from '../../../components/Common_components/SelectField/SelectField';
+import { warehouseTypes } from './WarehouseCreateForm.static';
+import SelectStyle from '../../../components/Common_components/SelectField/SelectField.style';
+import { Field, FormikProvider } from 'formik';
 
 export default function WarehouseCreateForm() {
     const navigate = useNavigate();
@@ -29,16 +32,14 @@ export default function WarehouseCreateForm() {
                     onChange={formik.handleChange}
                 />
                 {formik.errors.name && formik.touched.name ? <ErrorMessage>{formik.errors.name}</ErrorMessage> : null}
-                <Field
+                <SelectField
                     type="select"
-                    label="Warehouse type"
+                    label="Warehouse Type"
                     name="type"
-                    placeholder="Please enter type"
+                    placeholder="Please enter warehouse type"
                     onChange={formik.handleChange}
-                >
-                    <option value="solid">Solid</option>
-                    <option value="liquid">Liquid</option>
-                </Field>
+                    options={warehouseTypes}
+                />
                 {formik.errors.type && formik.touched.type ? <ErrorMessage>{formik.errors.type}</ErrorMessage> : null}
                 <FormButton type={'submit'} btnText={'Create'} />
                 {formik.errors.error ? <ErrorMessage>{formik.errors.error}</ErrorMessage> : null}

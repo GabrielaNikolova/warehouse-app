@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 import { create } from '../../../services/warehouseService';
-import {  Warehouse, WarehouseCreateShema } from './WarehouseCreateForm.static';
+import { Warehouse, WarehouseCreateShema } from './WarehouseCreateForm.static';
 
 function createWarehouse() {
     const navigate = useNavigate();

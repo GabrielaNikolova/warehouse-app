@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-interface InputProps {
+interface SelectProps {
     type?: string;
     label?: string;
     value?: string | number;
@@ -11,6 +11,13 @@ interface InputProps {
     disabled?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     readonly?: boolean;
-}
+    options: SelectOption[];
 
-export type {InputProps};
+}
+type SelectOption = {
+    label: string;
+    value: string;
+  };
+
+
+export type {SelectProps};
