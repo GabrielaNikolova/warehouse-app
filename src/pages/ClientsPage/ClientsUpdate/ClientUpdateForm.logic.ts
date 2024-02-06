@@ -3,7 +3,7 @@ import { update } from '../../../services/clientService';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { merge } from 'lodash';
-import { Client, ClientEditShema } from './ClientUpdateForm.static';
+import { Client, ClientUpdateShema } from './ClientUpdateForm.static';
 
 function editClient() {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ function editClient() {
             uic: client.uic,
             error: client.error,
         },
-        validationSchema: ClientEditShema,
+        validationSchema: ClientUpdateShema,
 
         onSubmit: async (values: Client, { setFieldError, setSubmitting, resetForm }) => {
             try {

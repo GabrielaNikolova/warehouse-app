@@ -10,7 +10,7 @@ interface Client {
 }
 
 
-const ClientEditShema = Yup.object().shape({
+const ClientUpdateShema = Yup.object().shape({
     name: Yup.string()
         .min(5, 'Name is too short!')
         .max(100, 'Name is too long!')
@@ -27,4 +27,4 @@ const ClientEditShema = Yup.object().shape({
 });
 
 export type { Client };
-export { ClientEditShema };
+export { ClientUpdateShema };

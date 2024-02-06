@@ -1,26 +1,27 @@
 import { Warehouse } from '../pages/WarehousePage/WarehouseCreate/WarehouseCreateForm.static';
-import * as request from './fetchService';
+import { WarehouseList } from '../pages/WarehousePage/WarehousesList/WarehousesList.static';
+import { get,post, patch, del } from './fetchService';
 
 const baseUrl = 'http://localhost:3000/warehouse';
 
-const getAll = async (): Promise<Warehouse[]> => {
-    return await request.get(`${baseUrl}`, {});
+const getAll = async (): Promise<WarehouseList[]> => {
+    return await get(`${baseUrl}`, {});
 };
 
-const getById = async (id: string): Promise<Warehouse> => {
-    return await request.get(`${baseUrl}/${id}`, {});
+const getById = async (id: string): Promise<WarehouseList> => {
+    return await get(`${baseUrl}/${id}`, {});
 };
 
 const create = async ({ name, type }: Warehouse): Promise<Warehouse> => {
-    return await request.post(`${baseUrl}/create`, { name, type });
+    return await post(`${baseUrl}/create`, { name, type });
 };
 
 const update = async ({ id, name, type }: Warehouse): Promise<Warehouse> => {
-    return await request.post(`${baseUrl}/${id}`, { name, type });
+    return await patch(`${baseUrl}/${id}`, { name, type });
 };
 
 const delWarehouse = async (id: string) => {
-    return await request.del(`${baseUrl}/${id}`, {});
+    return await del(`${baseUrl}/${id}`, {});
 };
 
 export { getAll, getById, create, update, delWarehouse };

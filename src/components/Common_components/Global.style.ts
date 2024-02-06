@@ -63,4 +63,12 @@ section {
     padding: 100px 0px;
     max-width: 1000px;
 }
+option {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    width: 250px;
+    color: var(--dark-grey);
+    padding: 10px 14px;
+    margin-bottom: 1rem;
+}
 `;

@@ -2,6 +2,7 @@ import FormButton from '../../components/Common_components/Button/Button';
 import { Container } from '../../components/Common_components/Container.style';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../statics/routes';
+import WarehousesList from './WarehousesList/WarehousesList';
 
 export default function Warehouses() {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Warehouses() {
                     navigate(routes.warehousesCreate);
                 }}
             />
-            {/* <ClientsList /> */}
+            <WarehousesList />
         </Container>
     );
 }

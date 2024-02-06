@@ -9,10 +9,11 @@ import Clients from './pages/ClientsPage/ClientsPage';
 import { AuthProvider } from './contexts/AuthContext/AuthContext';
 import { routes } from './statics/routes';
 import { GlobalStyle } from './components/Common_components/Global.style';
-import ClientEditForm from './pages/ClientsPage/ClientsUpdate/ClientEditForm';
 import WarehouseCreateForm from './pages/WarehousePage/WarehouseCreate/WarehouseCreateForm';
 import ClientCreateForm from './pages/ClientsPage/ClientsCreate/ClientCreateForm';
 import Warehouses from './pages/WarehousePage/WarehousesPage';
+import WarehouseUpdateForm from './pages/WarehousePage/WarehouseUpdate/WarehouseUpdateForm';
+import ClientUpdateForm from './pages/ClientsPage/ClientsUpdate/ClientUpdateForm';
 
 function App() {
     return (
@@ -27,10 +28,10 @@ function App() {
                     <Route path={routes.logout} element={<Logout />} />
                     <Route path={routes.clients} element={<Clients />} />
                     <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
-                    <Route path={routes.clientsEdit} element={<ClientEditForm />} />
+                    <Route path={routes.clientsEdit} element={<ClientUpdateForm />} />
                     <Route path={routes.warehouses} element={<Warehouses />} />
                     <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
-                    {/* <Route path={routes.warehousesEdit} element={<ClientEditForm />} /> */}
+                    <Route path={routes.warehousesEdit} element={<WarehouseUpdateForm />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>
