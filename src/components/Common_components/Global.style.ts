@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     --green: #92BCA8;
     --purple: #6B6DAF;
     --red: #FF4033;
-    --border-radius: 1rem;
+    --border-radius: 0.5rem;
     --nav-heigth: 8rem;
     scroll-behavior: smooth;
 }

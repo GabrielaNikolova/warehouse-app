@@ -13,9 +13,6 @@ function getWarehouses() {
             warehouses.map((w) => {
                 if (w.created !== undefined) {
                     const dateTime = new Date(w.created).toLocaleDateString();
-                    // const date = new Date(dateTime.getFullYear(), dateTime.getMonth(), dateTime.getDate()).toDateString();
-                    // console.log('date', date);
-
                     return (w.created = dateTime);
                 }
             });

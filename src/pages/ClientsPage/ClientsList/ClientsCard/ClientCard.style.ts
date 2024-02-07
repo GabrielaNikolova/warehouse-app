@@ -6,7 +6,7 @@ const ClientCardStyled = styled.div`
     max-width: 250px;
     background: var(--green);
     padding: 1rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 0.3rem solid var(--purple);
     //box-shadow: 0 10px 20px 0 var(--dark-grey);
     box-shadow: 0.2rem 0.4rem var(--purple);

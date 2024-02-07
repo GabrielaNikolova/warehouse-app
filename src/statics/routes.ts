@@ -8,6 +8,8 @@ export const routes = {
     warehousesCreate: '/warehouses/create',
     warehousesEdit: '/warehouses/:id',
     products: '/products',
+    productsCreate: '/products/create',
+    productsEdit: '/products/:id',
     operations: '/operations',
     invoices: '/invoices',
     login: '/login',
