@@ -1,6 +1,5 @@
  const navItems = [
-    //{ name: 'Home', to: '/', private: false },TODO MAKE WELCOME PAGE
-    { name: 'Home', to: '/', private: false },
+    { name: 'Dashboard', to: '/', private: true },
     { name: 'Clients', to: '/clients', private: true },
     { name: 'Warehouses', to: '/warehouses', private: true },
     { name: 'Products', to: '/products', private: true },

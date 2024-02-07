@@ -1,8 +1,8 @@
-import FormButton from '../../components/Common_components/Button/Button';
-import { Container } from '../../components/Common_components/Container.style';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../statics/routes';
 import ClientsList from './ClientsList/ClientsList';
+import { Container } from '../../components/Common_components/Global.style';
+import FormButton from '../../components/Common_components/Button/Button';
 
 export default function Clients() {
     const navigate = useNavigate();

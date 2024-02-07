@@ -34,19 +34,15 @@ function editProduct() {
                     })
                     .filter((v) => v !== undefined);
 
-                console.log('VALS', vals);
-
                 if (vals.length === 1) {
                     navigate('/products');
                     return;
                 }
 
                 const updated = merge({}, ...vals);
-                console.log('UPDATED', updated);
 
                 const updateProduct = await update(updated);
 
-                console.log('Product:', updateProduct);
                 if (updateProduct.error) {
                     throw new Error(updateProduct.error);
                 } else {

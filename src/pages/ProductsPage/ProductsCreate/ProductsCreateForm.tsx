@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../../../components/Common_components/Button/Button';
-import { Container } from '../../../components/Common_components/Container.style';
+
 import { createProduct } from './ProductsCreateForm.logic';
 import { Option, ProductCreateFormStyled, SelectStyle } from './ProductsCreateForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
@@ -8,6 +8,7 @@ import InputField from '../../../components/Common_components/InputField/InputFi
 import { productCategories } from './ProductsCreateForm.static';
 
 import { Field, FormikProvider } from 'formik';
+import { Container } from '../../../components/Common_components/Global.style';
 
 export default function ProductCreateForm() {
     const navigate = useNavigate();

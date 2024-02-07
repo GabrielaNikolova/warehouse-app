@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { merge } from 'lodash';
-import {Warehouse, WarehouseUpdateShema } from './WarehouseUpdateForm.static';
+import { Warehouse, WarehouseUpdateShema } from './WarehouseUpdateForm.static';
 import { update } from '../../../services/warehouseService';
 
 function editWarehouse() {
@@ -32,18 +32,15 @@ function editWarehouse() {
                     })
                     .filter((v) => v !== undefined);
 
-                console.log('VALS', vals);
                 if (vals.length === 1) {
                     navigate('/warehouses');
                     return;
                 }
 
                 const updated = merge({}, ...vals);
-                console.log('UPDATED', updated);
 
                 const updateWarehouse = await update(updated);
 
-                console.log('Warehouse:', updateWarehouse);
                 if (updateWarehouse.error) {
                     throw new Error(updateWarehouse.error);
                 } else {

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import FormButton from '../../../components/Common_components/Button/Button';
-import { Container } from '../../../components/Common_components/Container.style';
+
 import { createWarehouse } from './WarehouseCreateForm.logic';
 import { Option, SelectStyle, WarehouseCreateFormStyled } from './WarehouseCreateForm.style';
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
@@ -8,6 +8,7 @@ import InputField from '../../../components/Common_components/InputField/InputFi
 import { warehouseTypes } from './WarehouseCreateForm.static';
 
 import { Field, FormikProvider } from 'formik';
+import { Container } from '../../../components/Common_components/Global.style';
 
 export default function WarehouseCreateForm() {
     const navigate = useNavigate();

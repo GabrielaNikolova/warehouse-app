@@ -1,11 +1,12 @@
 import FormButton from '../../../components/Common_components/Button/Button';
-import { Container } from '../../../components/Common_components/Container.style';
+
 import { useNavigate } from 'react-router-dom';
 
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
 import editClient from './ClientUpdateForm.logic';
 import { ClientUpdateFormStyled } from './ClientUpdateForm.style';
 import InputField from '../../../components/Common_components/InputField/InputField';
+import { Container } from '../../../components/Common_components/Global.style';
 
 export default function ClientUpdateForm() {
     const navigate = useNavigate();

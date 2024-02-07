@@ -1,6 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-
-export const GlobalStyle = createGlobalStyle`
+import styled, { createGlobalStyle } from 'styled-components';
+const GlobalStyle = createGlobalStyle`
 :root {
     font-family: 'Red Hat Display', sans-serif;
     font-weight: normal;
@@ -72,3 +71,20 @@ option {
     margin-bottom: 1rem;
 }
 `;
+
+const Container = styled.section`
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    height: 100vh;
+
+    &.clients-container {
+        height: auto;
+        padding-top: 15rem;
+    }
+`;
+
+export { GlobalStyle, Container };

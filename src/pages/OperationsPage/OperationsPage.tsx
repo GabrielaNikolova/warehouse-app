@@ -1,11 +1,10 @@
 import FormButton from '../../components/Common_components/Button/Button';
-
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../statics/routes';
-import ProductsTable from './ProductsTable/ProductsTable';
 import { Container } from '../../components/Common_components/Global.style';
+import OperationsTable from './OperationsTable/OperationsTable';
 
-export default function Products() {
+export default function Operations() {
     const navigate = useNavigate();
 
     return (
@@ -13,12 +12,12 @@ export default function Products() {
             <FormButton
                 className={'create-btn'}
                 type={'button'}
-                btnText={'Create New Product'}
+                btnText={'Create New Operation'}
                 onClick={() => {
-                    navigate(routes.productsCreate);
+                    navigate(routes.operationsCreate);
                 }}
             />
-            <ProductsTable />
+            <OperationsTable />
         </Container>
     );
 }

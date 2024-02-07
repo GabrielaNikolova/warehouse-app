@@ -1,6 +1,5 @@
 export const routes = {
-    //{ name: 'Home', to: '/', private: false },TODO MAKE WELCOME PAGE
-    home: '/',
+    dashboard: '/',
     clients: '/clients',
     clientsCreate: '/clients/create',
     clientsUpdate: '/clients/:id',
@@ -11,6 +10,8 @@ export const routes = {
     productsCreate: '/products/create',
     productsUpdate: '/products/:id',
     operations: '/operations',
+    operationsCreate: '/operations/create',
+    operationsUpdate: '/operations/:id',
     invoices: '/invoices',
     login: '/login',
     register: '/register',

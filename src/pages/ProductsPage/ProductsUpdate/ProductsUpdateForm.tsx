@@ -1,5 +1,5 @@
 import FormButton from '../../../components/Common_components/Button/Button';
-import { Container } from '../../../components/Common_components/Container.style';
+
 import { useNavigate } from 'react-router-dom';
 
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
@@ -8,6 +8,7 @@ import InputField from '../../../components/Common_components/InputField/InputFi
 import { Field, FormikProvider } from 'formik';
 import { productCategories } from './ProductsUpdateForm.static';
 import editProduct from './ProductsUpdateForm.logic';
+import { Container } from '../../../components/Common_components/Global.style';
 
 export default function ProductUpdateForm() {
     const navigate = useNavigate();
