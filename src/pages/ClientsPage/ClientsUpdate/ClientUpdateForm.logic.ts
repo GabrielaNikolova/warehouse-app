@@ -36,6 +36,10 @@ function editClient() {
                     .filter((v) => v !== undefined);
 
                 console.log('VALS', vals);
+                if (vals.length === 1) {
+                    navigate('/clients');
+                    return;
+                }
 
                 const updated = merge({}, ...vals);
                 console.log('UPDATED', updated);

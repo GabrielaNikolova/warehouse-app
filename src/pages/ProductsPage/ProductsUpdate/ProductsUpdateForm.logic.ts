@@ -4,7 +4,6 @@ import { merge } from 'lodash';
 import { ProductUpdate, ProductUpdateShema } from './ProductsUpdateForm.static';
 import { update } from '../../../services/productService';
 
-
 function editProduct() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,6 +35,11 @@ function editProduct() {
                     .filter((v) => v !== undefined);
 
                 console.log('VALS', vals);
+
+                if (vals.length === 1) {
+                    navigate('/products');
+                    return;
+                }
 
                 const updated = merge({}, ...vals);
                 console.log('UPDATED', updated);

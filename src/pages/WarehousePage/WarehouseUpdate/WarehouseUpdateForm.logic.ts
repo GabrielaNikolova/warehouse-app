@@ -33,6 +33,10 @@ function editWarehouse() {
                     .filter((v) => v !== undefined);
 
                 console.log('VALS', vals);
+                if (vals.length === 1) {
+                    navigate('/warehouses');
+                    return;
+                }
 
                 const updated = merge({}, ...vals);
                 console.log('UPDATED', updated);

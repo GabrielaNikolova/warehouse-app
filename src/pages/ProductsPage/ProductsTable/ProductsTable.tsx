@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../statics/routes';
 import { deleteProduct, getProducts } from './ProductsTable.logic';
 import { TableStyled } from './ProductsTable.style';
-import { Product } from './ProductsTable.static';
 import { ProductUpdate } from '../ProductsUpdate/ProductsUpdateForm.static';
 
 function ProductsTable() {
