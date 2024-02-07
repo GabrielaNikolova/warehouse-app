@@ -5,6 +5,7 @@ import { routes } from '../../../statics/routes';
 import { deleteProduct, getProducts } from './ProductsTable.logic';
 import { TableStyled } from './ProductsTable.style';
 import { Product } from './ProductsTable.static';
+import { ProductUpdate } from '../ProductsUpdate/ProductsUpdateForm.static';
 
 function ProductsTable() {
     const { data, columns, fetchData } = getProducts();
@@ -38,9 +39,9 @@ function ProductsTable() {
                                     type={'button'}
                                     btnText={'Edit'}
                                     onClick={() => {
-                                        const product: Product = row.original;
-                                        navigate(`${routes.warehouses}/${product.id}`, {
-                                            state: { currentWarehouse: product },
+                                        const product: ProductUpdate = row.original;
+                                        navigate(`${routes.products}/${product.id}`, {
+                                            state: { currentProduct: row.original },
                                         });
                                     }}
                                 />

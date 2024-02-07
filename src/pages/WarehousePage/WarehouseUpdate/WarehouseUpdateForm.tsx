@@ -3,9 +3,9 @@ import { Container } from '../../../components/Common_components/Container.style
 import { useNavigate } from 'react-router-dom';
 
 import ErrorMessage from '../../../components/Common_components/ErrorMessage/ErrorMessage';
-import { WarehouseUpdateFormStyled } from './WarehouseUpdateForm.style';
+import { Option, SelectStyle, WarehouseUpdateFormStyled } from './WarehouseUpdateForm.style';
 import InputField from '../../../components/Common_components/InputField/InputField';
-import { Option, SelectStyle } from '../WarehouseCreate/WarehouseCreateForm.style';
+
 import { Field, FormikProvider } from 'formik';
 import { warehouseTypes } from './WarehouseUpdateForm.static';
 import editWarehouse from './WarehouseUpdateForm.logic';

@@ -16,6 +16,7 @@ import WarehouseUpdateForm from './pages/WarehousePage/WarehouseUpdate/Warehouse
 import ClientUpdateForm from './pages/ClientsPage/ClientsUpdate/ClientUpdateForm';
 import Products from './pages/ProductsPage/ProductsPage';
 import ProductCreateForm from './pages/ProductsPage/ProductsCreate/ProductsCreateForm';
+import ProductUpdateForm from './pages/ProductsPage/ProductsUpdate/ProductsUpdateForm';
 
 function App() {
     return (
@@ -30,12 +31,13 @@ function App() {
                     <Route path={routes.logout} element={<Logout />} />
                     <Route path={routes.clients} element={<Clients />} />
                     <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
-                    <Route path={routes.clientsEdit} element={<ClientUpdateForm />} />
+                    <Route path={routes.clientsUpdate} element={<ClientUpdateForm />} />
                     <Route path={routes.warehouses} element={<Warehouses />} />
                     <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
-                    <Route path={routes.warehousesEdit} element={<WarehouseUpdateForm />} />
+                    <Route path={routes.warehousesUpdate} element={<WarehouseUpdateForm />} />
                     <Route path={routes.products} element={<Products />} />
                     <Route path={routes.productsCreate} element={<ProductCreateForm />} />
+                    <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

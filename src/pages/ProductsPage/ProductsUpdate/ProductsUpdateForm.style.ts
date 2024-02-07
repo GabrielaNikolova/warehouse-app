@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const WarehouseUpdateFormStyled = styled.form`
+const ProductUpdateFormStyled = styled.form`
    // margin: 1rem auto;
     display: flex;
     flex-direction: column;
@@ -71,4 +71,4 @@ const Option = styled.option`
     min-height: 1em;
 `;
 
-export {WarehouseUpdateFormStyled , Option, SelectStyle};
+export {ProductUpdateFormStyled, Option, SelectStyle };
