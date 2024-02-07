@@ -15,6 +15,7 @@ import Warehouses from './pages/WarehousePage/WarehousesPage';
 import WarehouseUpdateForm from './pages/WarehousePage/WarehouseUpdate/WarehouseUpdateForm';
 import ClientUpdateForm from './pages/ClientsPage/ClientsUpdate/ClientUpdateForm';
 import Products from './pages/ProductsPage/ProductsPage';
+import ProductCreateForm from './pages/ProductsPage/ProductsCreate/ProductsCreateForm';
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                     <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
                     <Route path={routes.warehousesEdit} element={<WarehouseUpdateForm />} />
                     <Route path={routes.products} element={<Products />} />
+                    <Route path={routes.productsCreate} element={<ProductCreateForm />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-const WarehouseCreateFormStyled = styled.form`
+const ProductCreateFormStyled = styled.form`
     // margin: 1rem auto;
     display: flex;
     flex-direction: column;
@@ -49,7 +48,7 @@ const SelectStyle = styled.div`
 
     select::placeholder {
         font-size: var(--font-size-sm);
-        font-weight: 500;
+        font-weight: 400;
         color: var(--grey);
     }
 
@@ -72,4 +71,4 @@ const Option = styled.option`
     min-height: 1em;
 `;
 
-export { WarehouseCreateFormStyled, SelectStyle, Option };
+export { ProductCreateFormStyled, SelectStyle, Option };

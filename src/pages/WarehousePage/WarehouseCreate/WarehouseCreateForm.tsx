@@ -25,7 +25,7 @@ export default function WarehouseCreateForm() {
                 <h3 className="form-title">Create new Warehouse</h3>
                 <InputField
                     type="name"
-                    label="Warehouse Name"
+                    label="Name"
                     name="name"
                     placeholder="Please enter warehouse's name"
                     onChange={formik.handleChange}
@@ -33,7 +33,7 @@ export default function WarehouseCreateForm() {
                 {formik.errors.name && formik.touched.name ? <ErrorMessage>{formik.errors.name}</ErrorMessage> : null}
                 <FormikProvider value={formik}>
                     <SelectStyle>
-                        <label htmlFor="type">Warehouse type</label>
+                        <label htmlFor="type">Type</label>
                         <Field as="select" id="type" name="type" onChange={formik.handleChange}>
                             <Option value="" label="Please enter type" />
                             {warehouseTypes.map((option) => (
