@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Operation } from './OperationsTable.static';
 import { Column } from 'react-table';
-import { delOperation, getAll } from '../../../services/operationService';
+import { getAll } from '../../../services/operationService';
 import { getById } from '../../../services/clientService';
 
 function getOperations() {
@@ -66,21 +66,4 @@ function getOperations() {
     return { data: operations, columns, setOperations, fetchData };
 }
 
-function deleteOperation() {
-    const { setOperations } = getOperations();
-
-    const deleteO = async (operation: Operation) => {
-        const id = operation.id!;
-
-        const deleted = await delOperation(id);
-
-        if (deleted) {
-            setOperations((prev) => {
-                return prev.filter((operation) => operation.id !== deleted.id);
-            });
-        }
-    };
-    return { deleteO };
-}
-
-export { getOperations, deleteOperation };
+export { getOperations };

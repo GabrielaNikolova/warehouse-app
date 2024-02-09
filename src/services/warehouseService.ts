@@ -1,6 +1,6 @@
 import { Warehouse } from '../pages/WarehousePage/WarehouseCreate/WarehouseCreateForm.static';
 import { WarehouseList } from '../pages/WarehousePage/WarehousesList/WarehousesList.static';
-import { get,post, patch, del } from './fetchService';
+import { get, post, patch, del } from './fetchService';
 
 const baseUrl = 'http://localhost:3000/warehouse';
 

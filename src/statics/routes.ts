@@ -14,6 +14,7 @@ export const routes = {
     operationsDetails: '/operations/details/:id',
     operationsUpdate: '/operations/:id',
     invoices: '/invoices',
+    invoiceDetails: '/invoices/details/:id',
     login: '/login',
     register: '/register',
     logout: '/logout',

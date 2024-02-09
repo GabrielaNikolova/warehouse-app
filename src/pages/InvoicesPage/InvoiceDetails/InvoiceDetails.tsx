@@ -1,30 +1,36 @@
-import { useNavigate } from 'react-router-dom';
 import FormButton from '../../../components/Common_components/Button/Button';
 import { ButtonsContainer } from '../../../components/Common_components/Button/Button.style';
 import { Container } from '../../../components/Common_components/Global.style';
-import { TableStyled } from '../OperationsTable/OperationsTable.style';
-import { useTable } from 'react-table';
-import { deleteOperation, getOperationDetails } from './OperationDetails.logic';
-import { OperationDetailsInfoStyled, OperationDetailsStyled } from './OperationDetails.style';
 
-export default function OperationDetails() {
-    const { data, columns, operation } = getOperationDetails();
+import { useTable } from 'react-table';
+import { InvoiceDetailsStyled, InvoiceDetailsInfoStyled } from './InvoiceDetails.style';
+import { TableStyled } from '../InvoicesTable/InvoicesTable.style';
+import { deleteInvoice, getInvoiceDetails } from './InvoiceDetails.logic';
+
+export default function InvoiceDetails() {
+    const { data, columns, invoiceDetails, invoiceTotal } = getInvoiceDetails();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
-    const { deleteO } = deleteOperation();
+    const { deleteI } = deleteInvoice();
     // const navigate = useNavigate();
 
     return (
         <Container>
-            <OperationDetailsStyled>
-                <h3>Operation Details</h3>
-                <OperationDetailsInfoStyled>
-                    <p>Number: {operation.id}</p>
-                    <p>Type: {operation.type}</p>
-                    <p>Date: {operation.date}</p>
-                    <p>Client: {operation.client}</p>
-                    <p>Warehouse: {operation.warehouse}</p>
-                    <p>Transfer: {operation.isTransfer}</p>
-                </OperationDetailsInfoStyled>
+            <InvoiceDetailsStyled>
+                <h3>Invoice Details</h3>
+                <InvoiceDetailsInfoStyled>
+                    <div>
+                        <p>Client:</p>
+                        <p>name: {invoiceDetails.client?.name}</p>
+                        <p>accountable person: {invoiceDetails.client?.accountablePerson}</p>
+                        <p>address: {invoiceDetails.client?.address}</p>
+                        <p>uic: {invoiceDetails.client?.uic}</p>
+                    </div>
+                    <div>
+                        <p>Invoice #: {invoiceDetails.invoice?.number}</p>
+                        {/* <p>Operation #: {invoiceDetails.invoice?.operation}</p> */}
+                        <p>Date: {invoiceDetails.invoice?.date}</p>
+                    </div>
+                </InvoiceDetailsInfoStyled>
                 <div>
                     <h4>Products:</h4>
                     <TableStyled {...getTableProps()}>
@@ -51,6 +57,7 @@ export default function OperationDetails() {
                             })}
                         </tbody>
                     </TableStyled>
+                    <div className="invoice-total">Total: {invoiceTotal}</div>
                 </div>
                 <ButtonsContainer>
                     {/* <FormButton
@@ -69,13 +76,13 @@ export default function OperationDetails() {
                         type={'button'}
                         btnText={'Delete'}
                         onClick={async () => {
-                            if (operation.id) {
-                                await deleteO(operation.id);
+                            if (invoiceDetails.invoice?.id) {
+                                await deleteI(invoiceDetails.invoice?.id);
                             }
                         }}
                     />
                 </ButtonsContainer>
-            </OperationDetailsStyled>
+            </InvoiceDetailsStyled>
         </Container>
     );
 }

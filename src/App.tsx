@@ -20,6 +20,8 @@ import DashboardPage from './pages/DashboardPage';
 import Operations from './pages/OperationsPage/OperationsPage';
 import OperationsCreateForm from './pages/OperationsPage/OperationsCreate/OperationsCreateForm';
 import OperationDetails from './pages/OperationsPage/OperationDetails/OperationDetails';
+import Invoices from './pages/InvoicesPage/InvoicePage';
+import InvoiceDetails from './pages/InvoicesPage/InvoiceDetails/InvoiceDetails';
 
 function App() {
     return (
@@ -45,6 +47,10 @@ function App() {
                         <Route index={true} element={<Operations />} />
                         <Route path={routes.operationsDetails} element={<OperationDetails />} />
                         <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
+                    </Route>
+                    <Route path={routes.invoices}>
+                        <Route index={true} element={<Invoices />} />
+                        <Route path={routes.invoiceDetails} element={<InvoiceDetails />} />
                     </Route>
                 </Routes>
             </AuthProvider>

@@ -57,6 +57,12 @@ ul {
     list-style-type: none;
 }
 
+h2 {
+    color: var(--purple);
+    text-align: center;
+    font-style: --font-size-md;
+}
+
 section {
     margin: 0px auto;
     padding: 100px 0px;
