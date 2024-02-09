@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
-import { OperationCreate, OperationCreateShema, OperationCreateValues } from './OperationsCreateForm.static';
+import { OperationCreateShema, OperationCreateValues } from './OperationsCreateForm.static';
 import { create } from '../../../services/operationService';
 import { Product } from '../../ProductsPage/ProductsTable/ProductsTable.static';
 import { useCallback, useEffect, useState } from 'react';
@@ -81,7 +81,5 @@ function createOperation() {
 
     return { formik, getData, products, clients, warehouses };
 }
-
-
 
 export { createOperation };

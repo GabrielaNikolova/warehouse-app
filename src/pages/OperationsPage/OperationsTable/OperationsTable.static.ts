@@ -3,6 +3,7 @@ interface Operation {
     type?: string;
     date?: string;
     client?: string;
+    warehouse?: string;
     isTransfer?: string;
     error?: string;
 }

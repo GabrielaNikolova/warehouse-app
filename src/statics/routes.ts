@@ -11,6 +11,7 @@ export const routes = {
     productsUpdate: '/products/:id',
     operations: '/operations',
     operationsCreate: '/operations/create',
+    operationsDetails: '/operations/details/:id',
     operationsUpdate: '/operations/:id',
     invoices: '/invoices',
     login: '/login',

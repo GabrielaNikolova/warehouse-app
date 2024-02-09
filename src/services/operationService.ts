@@ -1,9 +1,6 @@
-import {
-    OperationCreate,
-    OperationCreateValues,
-} from '../pages/OperationsPage/OperationsCreate/OperationsCreateForm.static';
+import { Detail } from '../pages/OperationsPage/OperationDetails/OperationDetails.static';
+import { OperationCreate } from '../pages/OperationsPage/OperationsCreate/OperationsCreateForm.static';
 import { Operation } from '../pages/OperationsPage/OperationsTable/OperationsTable.static';
-import { ProductCreate } from '../pages/ProductsPage/ProductsCreate/ProductsCreateForm.static';
 import { Product } from '../pages/ProductsPage/ProductsTable/ProductsTable.static';
 import { get, post, patch, del } from './fetchService';
 
@@ -15,6 +12,10 @@ const getAll = async (): Promise<Operation[]> => {
 
 const getById = async (id: string): Promise<Operation> => {
     return await get(`${baseUrl}/${id}`, {});
+};
+
+const getDetailsByOperationId = async (id: string): Promise<Detail[]> => {
+    return await get(`http://localhost:3000/operation-details/search?opId=${id}`, {});
 };
 
 const create = async ({
@@ -36,4 +37,4 @@ const delOperation = async (id: string) => {
     return await del(`${baseUrl}/${id}`, {});
 };
 
-export { getAll, getById, create, update, delOperation };
+export { getAll, getDetailsByOperationId, getById, create, update, delOperation };

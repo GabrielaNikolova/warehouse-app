@@ -18,8 +18,8 @@ import ProductCreateForm from './pages/ProductsPage/ProductsCreate/ProductsCreat
 import ProductUpdateForm from './pages/ProductsPage/ProductsUpdate/ProductsUpdateForm';
 import DashboardPage from './pages/DashboardPage';
 import Operations from './pages/OperationsPage/OperationsPage';
-import MultiSelect from './pages/OperationsPage/OperationsCreate/MultiSelect/MultiSelect';
 import OperationsCreateForm from './pages/OperationsPage/OperationsCreate/OperationsCreateForm';
+import OperationDetails from './pages/OperationsPage/OperationDetails/OperationDetails';
 
 function App() {
     return (
@@ -41,9 +41,11 @@ function App() {
                     <Route path={routes.products} element={<Products />} />
                     <Route path={routes.productsCreate} element={<ProductCreateForm />} />
                     <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
-                    <Route path={routes.operations} element={<Operations />} />
-                    <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
-                    <Route path={routes.operationsUpdate} element={<ProductUpdateForm />} />
+                    <Route path={routes.operations}>
+                        <Route index={true} element={<Operations />} />
+                        <Route path={routes.operationsDetails} element={<OperationDetails />} />
+                        <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
+                    </Route>
                 </Routes>
             </AuthProvider>
         </BrowserRouter>

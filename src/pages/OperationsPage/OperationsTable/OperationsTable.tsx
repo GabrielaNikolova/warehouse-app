@@ -2,14 +2,13 @@ import { useTable } from 'react-table';
 import FormButton from '../../../components/Common_components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../../statics/routes';
-import { deleteOperation, getOperations } from './OperationsTable.logic';
+import { getOperations } from './OperationsTable.logic';
 import { TableStyled } from './OperationsTable.style';
 import { Operation } from './OperationsTable.static';
 
 function OperationsTable() {
-    const { data, columns, fetchData } = getOperations();
+    const { data, columns } = getOperations();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
-    const { deleteO } = deleteOperation();
     const navigate = useNavigate();
 
     return (
@@ -39,18 +38,9 @@ function OperationsTable() {
                                     btnText={'Details'}
                                     onClick={() => {
                                         const operation: Operation = row.original;
-                                        navigate(`${routes.operations}/${operation.id}`, {
+                                        navigate(`${routes.operations}/details/${operation.id}`, {
                                             state: { currentOperation: row.original },
                                         });
-                                    }}
-                                />
-                                <FormButton
-                                    className={'delete-btn'}
-                                    type={'button'}
-                                    btnText={'Delete'}
-                                    onClick={async () => {
-                                        await deleteO(row.original);
-                                        fetchData();
                                     }}
                                 />
                             </td>
