@@ -1,3 +1,7 @@
+import {
+    OperationCreate,
+    OperationCreateValues,
+} from '../pages/OperationsPage/OperationsCreate/OperationsCreateForm.static';
 import { Operation } from '../pages/OperationsPage/OperationsTable/OperationsTable.static';
 import { ProductCreate } from '../pages/ProductsPage/ProductsCreate/ProductsCreateForm.static';
 import { Product } from '../pages/ProductsPage/ProductsTable/ProductsTable.static';
@@ -13,8 +17,15 @@ const getById = async (id: string): Promise<Operation> => {
     return await get(`${baseUrl}/${id}`, {});
 };
 
-const create = async ({ name, type, unit, category }: ProductCreate): Promise<ProductCreate> => {
-    return await post(`${baseUrl}/create`, { name, type, unit, category });
+const create = async ({
+    type,
+    date,
+    client,
+    warehouse,
+    warehouseIn,
+    products,
+}: OperationCreate): Promise<Operation> => {
+    return await post(`${baseUrl}/create`, { type, date, client, warehouse, warehouseIn, products });
 };
 
 const update = async ({ id, name, type, unit, category }: Product): Promise<Product> => {

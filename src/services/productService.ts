@@ -8,6 +8,10 @@ const getAll = async (): Promise<Product[]> => {
     return await get(`${baseUrl}`, {});
 };
 
+const getAllByCategory = async (category: string): Promise<Product[]> => {
+    return await get(`${baseUrl}/search?category=${category}`, { category });
+};
+
 const getById = async (id: string): Promise<Product> => {
     return await get(`${baseUrl}/${id}`, {});
 };
@@ -24,4 +28,4 @@ const delProduct = async (id: string) => {
     return await del(`${baseUrl}/${id}`, {});
 };
 
-export { getAll, getById, create, update, delProduct };
+export { getAll, getById, create, update, delProduct, getAllByCategory };

@@ -23,7 +23,7 @@ const universalRequest = async (method: string, url: string, data) => {
             if (fetchedData.error) {
                 const backendError = fetchedData.error.message;
 
-                console.log("backend", backendError);
+                console.log("backend-error", backendError);
                 
                 return { error: backendError };
             }
@@ -41,6 +41,9 @@ const universalRequest = async (method: string, url: string, data) => {
                 },
                 body: JSON.stringify(data),
             });
+            
+            console.log("DATA-FETCH-POST", data);
+            
 
             const fetchedData = await response.json();
             if (fetchedData.error) {

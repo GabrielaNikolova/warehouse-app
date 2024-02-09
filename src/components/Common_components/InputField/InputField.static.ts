@@ -1,7 +1,8 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent } from 'react';
 
 interface InputProps {
     type?: string;
+    id?: string;
     label?: string;
     value?: string | number;
     name?: string;
@@ -13,4 +14,4 @@ interface InputProps {
     readonly?: boolean;
 }
 
-export type {InputProps};
+export type { InputProps };
