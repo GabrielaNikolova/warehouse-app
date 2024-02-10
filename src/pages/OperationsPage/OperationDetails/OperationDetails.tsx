@@ -6,12 +6,13 @@ import { TableStyled } from '../OperationsTable/OperationsTable.style';
 import { useTable } from 'react-table';
 import { deleteOperation, getOperationDetails } from './OperationDetails.logic';
 import { OperationDetailsInfoStyled, OperationDetailsStyled } from './OperationDetails.style';
+import { routes } from '../../../statics/routes';
 
 export default function OperationDetails() {
-    const { data, columns, operation } = getOperationDetails();
+    const { data, columns, operation, invoice } = getOperationDetails();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const { deleteO } = deleteOperation();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <Container>
@@ -53,17 +54,18 @@ export default function OperationDetails() {
                     </TableStyled>
                 </div>
                 <ButtonsContainer>
-                    {/* <FormButton
-                        className={'edit-btn'}
-                        type={'button'}
-                        btnText={'Update'}
-                        onClick={() => {
-                            // const operation: Operation = row.original;
-                            // navigate(`${routes.operations}/details/${operation.id}`, {
-                            //     state: { currentOperation: row.original },
-                            // });
-                        }}
-                    /> */}
+                    {operation.type === 'stock picking' && (
+                        <FormButton
+                            className={'edit-btn'}
+                            type={'button'}
+                            btnText={'See Invoice'}
+                            onClick={() => {
+                                navigate(`${routes.invoices}/details/${invoice.id}`, {
+                                    state: { currentInvoice: invoice },
+                                });
+                            }}
+                        />
+                    )}
                     <FormButton
                         className={'delete-btn'}
                         type={'button'}

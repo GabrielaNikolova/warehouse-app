@@ -4,7 +4,7 @@ import { Column } from 'react-table';
 import { InvoiceDetails, ProductForInvoiceDetails } from './InvoiceDetails.static';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getById as getClient } from '../../../services/clientService';
-import { getById as getOperattion } from '../../../services/operationService';
+import { getById as getOperation } from '../../../services/operationService';
 import { getById as getProduct } from '../../../services/productService';
 import { getDetailsByOperationId } from '../../../services/operationService';
 import { routes } from '../../../statics/routes';
@@ -23,7 +23,7 @@ function getInvoiceDetails() {
 
     const modifyInvoice = useCallback(async (invoice: Invoice) => {
         if (invoice.operation) {
-            const operation = await getOperattion(invoice.operation);
+            const operation = await getOperation(invoice.operation);
 
             if (operation.client) {
                 const client = await getClient(operation.client);
@@ -66,8 +66,7 @@ function getInvoiceDetails() {
         }
         setProducts(productsInOperation);
         setInvoiceTotal(sum);
-        console.log("sum", sum);
-        
+        console.log('sum', sum);
     }, []);
 
     useEffect(() => {

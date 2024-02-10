@@ -18,20 +18,20 @@ export default function InvoiceDetails() {
             <InvoiceDetailsStyled>
                 <h3>Invoice Details</h3>
                 <InvoiceDetailsInfoStyled>
-                    <div>
+                    <div className="invoice-client-section">
                         <p>Client:</p>
                         <p>name: {invoiceDetails.client?.name}</p>
                         <p>accountable person: {invoiceDetails.client?.accountablePerson}</p>
                         <p>address: {invoiceDetails.client?.address}</p>
                         <p>uic: {invoiceDetails.client?.uic}</p>
                     </div>
-                    <div>
+                    <div className="invoice-prop-section">
                         <p>Invoice #: {invoiceDetails.invoice?.number}</p>
                         {/* <p>Operation #: {invoiceDetails.invoice?.operation}</p> */}
                         <p>Date: {invoiceDetails.invoice?.date}</p>
                     </div>
                 </InvoiceDetailsInfoStyled>
-                <div>
+                <div className="invoice-content-section">
                     <h4>Products:</h4>
                     <TableStyled {...getTableProps()}>
                         <thead>

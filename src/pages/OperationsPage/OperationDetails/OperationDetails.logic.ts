@@ -8,12 +8,15 @@ import { getById as getProduct } from '../../../services/productService';
 import { delOperation, getDetailsByOperationId } from '../../../services/operationService';
 import { Operation } from '../OperationsTable/OperationsTable.static';
 import { routes } from '../../../statics/routes';
+import { Invoice } from '../../InvoicesPage/InvoicesTable/InvoicesTable.static';
+import { getInvoiceByOperationId } from '../../../services/invoiceService';
 
 function getOperationDetails() {
     const location = useLocation();
     const operation: Operation = location.state.currentOperation;
     const [operationDetails, setOperationDetails] = useState<OperationDetails>({});
     const [products, setProducts] = useState<ProductForOpDetails[]>([]);
+    const [invoice, setInvoice] = useState<Invoice>({});
     const [columns, setColumns] = useState<Column[]>([]);
 
     const modifyOperation = useCallback(async (operation: Operation) => {
@@ -28,6 +31,15 @@ function getOperationDetails() {
     useEffect(() => {
         modifyOperation(operation);
     }, [modifyOperation]);
+
+    const getInvoiceByOpId = async () => {
+        if (operation.id && operation.type === 'stock picking') {
+            const invoiceData = await getInvoiceByOperationId(operation.id);
+            if (invoiceData) {
+                setInvoice(invoiceData);
+            }
+        }
+    }
 
     const getProducts = useCallback(async () => {
         const productsInOperation: ProductForOpDetails[] = [];
@@ -56,6 +68,7 @@ function getOperationDetails() {
 
     useEffect(() => {
         getProducts();
+        getInvoiceByOpId();
     }, [getProducts]);
 
     const createOperationWithDetails = () => {
@@ -97,7 +110,7 @@ function getOperationDetails() {
         createOperationWithDetails();
     }, []);
 
-    return { data: products, columns, operation, operationDetails };
+    return { data: products, columns, operation, operationDetails, invoice };
 }
 
 function deleteOperation() {

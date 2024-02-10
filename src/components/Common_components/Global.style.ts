@@ -32,7 +32,7 @@ body {
     max-width: 2500px;
     min-width: 320px;
     margin: 0;
-    width: 100%;
+    width: auto;
     // display: flex; 
     flex-wrap: wrap;
     place-content: center;
@@ -81,10 +81,13 @@ option {
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    place-content: center;
+    //place-content: center;
     align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
     flex-wrap: wrap;
-    max-width: 100%;
+    width: auto;
     height: 100vh;
 
     &.clients-container {

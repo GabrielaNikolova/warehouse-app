@@ -30,19 +30,25 @@ function App() {
                 <GlobalStyle />
                 <Header />
                 <Routes>
-                    <Route path={routes.dashboard} element={<DashboardPage />} />
                     <Route path={routes.login} element={<LoginPage />} />
                     <Route path={routes.register} element={<RegisterPage />} />
                     <Route path={routes.logout} element={<Logout />} />
-                    <Route path={routes.clients} element={<Clients />} />
-                    <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
-                    <Route path={routes.clientsUpdate} element={<ClientUpdateForm />} />
-                    <Route path={routes.warehouses} element={<Warehouses />} />
-                    <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
-                    <Route path={routes.warehousesUpdate} element={<WarehouseUpdateForm />} />
-                    <Route path={routes.products} element={<Products />} />
-                    <Route path={routes.productsCreate} element={<ProductCreateForm />} />
-                    <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
+                    <Route path={routes.dashboard} element={<DashboardPage />} />
+                    <Route path={routes.clients}>
+                        <Route index={true} element={<Clients />} />
+                        <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
+                        <Route path={routes.clientsUpdate} element={<ClientUpdateForm />} />
+                    </Route>
+                    <Route path={routes.warehouses}>
+                        <Route index={true} element={<Warehouses />} />
+                        <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
+                        <Route path={routes.warehousesUpdate} element={<WarehouseUpdateForm />} />
+                    </Route>
+                    <Route path={routes.products}>
+                        <Route index={true} element={<Products />} />
+                        <Route path={routes.productsCreate} element={<ProductCreateForm />} />
+                        <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
+                    </Route>
                     <Route path={routes.operations}>
                         <Route index={true} element={<Operations />} />
                         <Route path={routes.operationsDetails} element={<OperationDetails />} />
