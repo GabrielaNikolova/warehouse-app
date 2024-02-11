@@ -1,6 +1,6 @@
 
 export const routes = {
-    dashboard: '/',
+    dashboard: '/reports',
     clients: '/clients',
     clientsCreate: '/clients/create',
     clientsUpdate: '/clients/:id',

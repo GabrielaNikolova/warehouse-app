@@ -6,7 +6,6 @@ import Logout from '../components/Logout/Logout.logic';
 import ClientCreateForm from '../pages/ClientsPage/ClientsCreate/ClientCreateForm';
 import Clients from '../pages/ClientsPage/ClientsPage';
 import ClientUpdateForm from '../pages/ClientsPage/ClientsUpdate/ClientUpdateForm';
-import DashboardPage from '../pages/DashboardPage';
 import InvoiceDetails from '../pages/InvoicesPage/InvoiceDetails/InvoiceDetails';
 import Invoices from '../pages/InvoicesPage/InvoicePage';
 import LoginPage from '../pages/LoginPage/LoginPage';
@@ -18,6 +17,7 @@ import ProductCreateForm from '../pages/ProductsPage/ProductsCreate/ProductsCrea
 import Products from '../pages/ProductsPage/ProductsPage';
 import ProductUpdateForm from '../pages/ProductsPage/ProductsUpdate/ProductsUpdateForm';
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import Reports from '../pages/ReportsPage/ReportsPage';
 import WarehouseCreateForm from '../pages/WarehousePage/WarehouseCreate/WarehouseCreateForm';
 import WarehouseUpdateForm from '../pages/WarehousePage/WarehouseUpdate/WarehouseUpdateForm';
 import Warehouses from '../pages/WarehousePage/WarehousesPage';
@@ -35,7 +35,7 @@ function routes() {
                     element: <ProtectedRoute />,
                     private: true,
                     children: [
-                        { path: route.dashboard, element: <DashboardPage />, name: 'Dashboard' },
+                        { path: route.dashboard, element: <Reports />, name: 'Dashboard' },
                         { path: route.clients, element: <Clients />, name: 'Clients' },
                         { path: route.warehouses, element: <Warehouses />, name: 'Warehouses' },
                         { path: route.products, element: <Products />, name: 'Products' },

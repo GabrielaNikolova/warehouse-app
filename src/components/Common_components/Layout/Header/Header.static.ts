@@ -1,5 +1,5 @@
 const navItems = [
-    { name: 'Dashboard', to: '/', private: true },
+    { name: 'Dashboard', to: '/reports', private: true },
     { name: 'Clients', to: '/clients', private: true },
     { name: 'Warehouses', to: '/warehouses', private: true },
     { name: 'Products', to: '/products', private: true },
