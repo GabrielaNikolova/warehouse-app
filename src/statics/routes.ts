@@ -1,3 +1,4 @@
+
 export const routes = {
     dashboard: '/',
     clients: '/clients',
@@ -20,3 +21,5 @@ export const routes = {
     logout: '/logout',
     notFound: '/*',
 };
+
+

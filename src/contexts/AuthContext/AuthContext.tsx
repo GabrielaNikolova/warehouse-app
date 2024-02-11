@@ -1,8 +1,8 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { login, register, logout } from '../../services/userService';
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import { User } from '../../pages/LoginPage/LoginForm/LoginForm.static';
+import { User, UserAuthData } from '../../pages/LoginPage/LoginForm/LoginForm.static';
 import { UserRegister } from '../../pages/RegisterPage/RegisterForm/RegisterForm.static';
 import { routes } from '../../statics/routes';
 
@@ -20,7 +20,6 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-    const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState<User>({});
 
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -32,7 +31,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const authentication = () => {
         const authToken = localStorage.getItem('access_token');
         const isValid = authToken && isTokenValid(authToken);
-        return isValid ? <Outlet /> : <Navigate to={routes.login} />;
+        return isValid ? <Outlet /> : <Navigate to={routes.login} replace />;
     };
     authentication();
 
@@ -47,27 +46,30 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     function isExpired(exp: number | undefined) {
         const currentTime = Date.now() / 1000;
-        return exp < currentTime;
+        if (exp) {
+            return exp < currentTime;
+        }
     }
 
-    const loginUser = async (user: User) => {
+    const loginUser = async (data: User) => {
         try {
-            const auth: User = await login(user);
+            const auth: UserAuthData = await login(data);
             if (auth.error) {
                 return auth;
             }
-            console.log('auth', auth);
 
             if (auth.access_token) {
-                localStorage.setItem('access_token', JSON.stringify(auth));
+                localStorage.setItem('access_token', JSON.stringify(auth.access_token));
                 setIsAuthenticated(true);
-                setCurrentUser(auth);
-                return auth;
+                if (auth.user) {
+                    setCurrentUser(auth.user);
+                }
             }
-
-            console.log('user', currentUser);
+            return auth;
         } catch (error) {}
     };
+
+    useEffect(() => {}, [currentUser]);
 
     const registerUser = async (user: UserRegister) => {
         const reg = await register(user);
@@ -77,18 +79,18 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         }
         if (!reg.error) {
             await loginUser(user);
-            navigate('/clients');
+            <Navigate to={routes.dashboard} />;
         }
     };
 
     const logoutUser = () => {
         const token = localStorage.getItem('access_token');
         if (!token) {
-            navigate('/login');
+            <Navigate to={routes.login} />;
         } else {
             logout();
             setIsAuthenticated(false);
-            navigate('/');
+            <Navigate to={routes.login} />;
         }
     };
 

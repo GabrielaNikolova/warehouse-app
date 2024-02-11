@@ -1,4 +1,4 @@
- const navItems = [
+const navItems = [
     { name: 'Dashboard', to: '/', private: true },
     { name: 'Clients', to: '/clients', private: true },
     { name: 'Warehouses', to: '/warehouses', private: true },

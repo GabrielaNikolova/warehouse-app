@@ -2,11 +2,16 @@ import * as Yup from 'yup';
 
 interface User {
     id?: string;
-    username?:string
+    username?: string;
     email?: string;
     password?: string;
     role?: string;
+    error?: string;
+}
+
+interface UserAuthData {
     access_token?: string;
+    user?: User;
     error?: string;
 }
 
@@ -18,5 +23,5 @@ const LoginShema = Yup.object().shape({
         .required('Password Required!'),
 });
 
-export type { User };
+export type { User , UserAuthData};
 export { LoginShema };

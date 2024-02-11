@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import { Nav, HeaderStyle } from './Header.style';
-import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import { navItems } from './Header.static';
+import { useAuth } from '../../../../contexts/AuthContext/AuthContext';
 
 export default function Header() {
     const { isAuthenticated } = useAuth();
