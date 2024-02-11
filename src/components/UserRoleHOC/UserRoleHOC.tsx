@@ -1,4 +1,4 @@
-import { useAuth } from '../../../contexts/AuthContext/AuthContext';
+import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 export default function UserRoleHOC() {

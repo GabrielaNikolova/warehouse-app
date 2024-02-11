@@ -1,7 +1,7 @@
-import FormButton from '../Button/Button';
+import FormButton from '../Common_components/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { routes } from '../../../statics/routes';
-import { Container } from '../Global.style';
+import { routes } from '../../statics/routes';
+import { Container } from '../Common_components/Global.style';
 
 function NotFound() {
     const navigate = useNavigate();

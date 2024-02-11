@@ -14,6 +14,10 @@ const Nav = styled.nav`
         align-items: center;
         padding: 0px;
         margin: 0px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
     a {
