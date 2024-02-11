@@ -7,6 +7,7 @@ import { Column } from 'react-table';
 function getProducts() {
     const [products, setProducts] = useState<Product[]>([]);
     const [columns, setColumns] = useState<Column[]>([]);
+    const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 400);
 
     const fetchData = useCallback(async () => {
         const products = await getAll();
@@ -38,7 +39,19 @@ function getProducts() {
         fetchData();
     }, [fetchData]);
 
-    return { data: products, columns, setProducts, fetchData };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsResponsive(window.innerWidth <= 400);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    return { data: products, columns, setProducts, fetchData, isResponsive };
 }
 
 function deleteProduct() {

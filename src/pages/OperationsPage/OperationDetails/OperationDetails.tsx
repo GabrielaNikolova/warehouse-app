@@ -9,7 +9,7 @@ import { OperationDetailsInfoStyled, OperationDetailsStyled } from './OperationD
 import { routes } from '../../../statics/routes';
 
 export default function OperationDetails() {
-    const { data, columns, operation, invoice } = getOperationDetails();
+    const { data, columns, operation, invoice, isResponsive } = getOperationDetails();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const { deleteO } = deleteOperation();
     const navigate = useNavigate();
@@ -45,7 +45,11 @@ export default function OperationDetails() {
                                 return (
                                     <tr {...row.getRowProps()}>
                                         {row.cells.map((cell) => (
-                                            <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                            <td>
+                                                {isResponsive
+                                                    ? [`${cell.render('Header')}: `, cell.render('Cell')]
+                                                    : cell.render('Cell')}
+                                            </td>
                                         ))}
                                     </tr>
                                 );

@@ -7,7 +7,7 @@ import { TableStyled } from './OperationsTable.style';
 import { Operation } from './OperationsTable.static';
 
 function OperationsTable() {
-    const { data, columns } = getOperations();
+    const { data, columns, isResponsive } = getOperations();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const navigate = useNavigate();
 
@@ -29,7 +29,11 @@ function OperationsTable() {
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map((cell) => (
-                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                <td {...cell.getCellProps()}>
+                                    {isResponsive
+                                        ? [`${cell.render('Header')}: `, cell.render('Cell')]
+                                        : cell.render('Cell')}
+                                </td>
                             ))}
                             <td>
                                 <FormButton

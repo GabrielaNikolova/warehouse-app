@@ -8,7 +8,7 @@ import { TableStyled } from '../InvoicesTable/InvoicesTable.style';
 import { deleteInvoice, getInvoiceDetails } from './InvoiceDetails.logic';
 
 export default function InvoiceDetails() {
-    const { data, columns, invoiceDetails, invoiceTotal } = getInvoiceDetails();
+    const { data, columns, invoiceDetails, invoiceTotal, isResponsive } = getInvoiceDetails();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const { deleteI } = deleteInvoice();
     // const navigate = useNavigate();
@@ -50,7 +50,11 @@ export default function InvoiceDetails() {
                                 return (
                                     <tr {...row.getRowProps()}>
                                         {row.cells.map((cell) => (
-                                            <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                            <td {...cell.getCellProps()}>
+                                                {isResponsive
+                                                    ? [`${cell.render('Header')}: `, cell.render('Cell')]
+                                                    : cell.render('Cell')}
+                                            </td>
                                         ))}
                                     </tr>
                                 );

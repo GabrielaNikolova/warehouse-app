@@ -18,6 +18,7 @@ function getOperationDetails() {
     const [products, setProducts] = useState<ProductForOpDetails[]>([]);
     const [invoice, setInvoice] = useState<Invoice>({});
     const [columns, setColumns] = useState<Column[]>([]);
+    const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 767);
 
     const modifyOperation = useCallback(async (operation: Operation) => {
         if (operation.warehouse) {
@@ -39,7 +40,7 @@ function getOperationDetails() {
                 setInvoice(invoiceData);
             }
         }
-    }
+    };
 
     const getProducts = useCallback(async () => {
         const productsInOperation: ProductForOpDetails[] = [];
@@ -110,7 +111,19 @@ function getOperationDetails() {
         createOperationWithDetails();
     }, []);
 
-    return { data: products, columns, operation, operationDetails, invoice };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsResponsive(window.innerWidth <= 767);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    return { data: products, columns, operation, operationDetails, invoice, isResponsive };
 }
 
 function deleteOperation() {

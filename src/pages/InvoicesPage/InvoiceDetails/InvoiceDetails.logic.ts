@@ -20,6 +20,7 @@ function getInvoiceDetails() {
     const [invoiceTotal, setInvoiceTotal] = useState<number>(0);
     const [products, setProducts] = useState<ProductForInvoiceDetails[]>([]);
     const [columns, setColumns] = useState<Column[]>([]);
+    const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 767);
 
     const modifyInvoice = useCallback(async (invoice: Invoice) => {
         if (invoice.operation) {
@@ -114,7 +115,19 @@ function getInvoiceDetails() {
         createInvoiceWithDetails();
     }, [client]);
 
-    return { data: products, columns, invoiceDetails, invoiceTotal };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsResponsive(window.innerWidth <= 767);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    return { data: products, columns, invoiceDetails, invoiceTotal, isResponsive };
 }
 
 function deleteInvoice() {

@@ -8,6 +8,7 @@ import { getById } from '../../../services/clientService';
 function getOperations() {
     const [operations, setOperations] = useState<Operation[]>([]);
     const [columns, setColumns] = useState<Column[]>([]);
+    const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 767);
 
     const fetchData = useCallback(async () => {
         const operations = await getAll();
@@ -63,7 +64,20 @@ function getOperations() {
         fetchData();
     }, [fetchData]);
 
-    return { data: operations, columns, setOperations, fetchData };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsResponsive(window.innerWidth <= 767);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+
+    return { data: operations, columns, setOperations, fetchData, isResponsive };
 }
 
 export { getOperations };

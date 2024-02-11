@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const TableStyled = styled.table`
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 1rem;
     font-size: var(--font-size-sm);
-    min-width: 600px;
+    width: auto;
+    max-width: 1000px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
     thead {
@@ -29,6 +30,23 @@ const TableStyled = styled.table`
     }
     tbody tr:last-of-type {
         border-bottom: 2px solid var(--green);
+    }
+
+    @media all and (max-width: 767px) {
+        thead {
+            display: none;
+        }
+        tbody {
+            
+        }
+        th {
+            display: block;
+        }
+        td {
+            display: flex;
+            padding: 10px;
+            max-width: 90%;
+        }
     }
 `;
 

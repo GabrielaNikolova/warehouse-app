@@ -8,7 +8,7 @@ import { TableStyled } from './InvoicesTable.style';
 import { getInvoices } from './InvoicesTable.logic';
 
 function InvoicesTable() {
-    const { data, columns } = getInvoices();
+    const { data, columns, isResponsive } = getInvoices();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const navigate = useNavigate();
 
@@ -30,7 +30,11 @@ function InvoicesTable() {
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map((cell) => (
-                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                <td {...cell.getCellProps()}>
+                                    {isResponsive
+                                        ? [`${cell.render('Header')}: `, cell.render('Cell')]
+                                        : cell.render('Cell')}
+                                </td>
                             ))}
                             <td>
                                 <FormButton

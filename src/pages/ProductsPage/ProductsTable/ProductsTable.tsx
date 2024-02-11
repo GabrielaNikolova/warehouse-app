@@ -7,7 +7,7 @@ import { TableStyled } from './ProductsTable.style';
 import { ProductUpdate } from '../ProductsUpdate/ProductsUpdateForm.static';
 
 function ProductsTable() {
-    const { data, columns, fetchData } = getProducts();
+    const { data, columns, fetchData, isResponsive } = getProducts();
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
     const { deleteP } = deleteProduct();
     const navigate = useNavigate();
@@ -30,7 +30,11 @@ function ProductsTable() {
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map((cell) => (
-                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                <td {...cell.getCellProps()}>
+                                    {isResponsive
+                                        ? [`${cell.render('Header')}: `, cell.render('Cell')]
+                                        : cell.render('Cell')}
+                                </td>
                             ))}
                             <td>
                                 <FormButton

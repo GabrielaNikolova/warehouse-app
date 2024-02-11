@@ -4,11 +4,12 @@ const OperationDetailsStyled = styled.section`
     display: flex;
     flex-direction: column;
     width: auto;
+    max-width: 1000px;
     background: var(--white-smoke);
     padding: 1rem;
+    margin: 1rem;
     border-radius: 1rem;
     border: 0.3rem solid var(--purple);
-    //box-shadow: 0 10px 20px 0 var(--dark-grey);
     box-shadow: 0.2rem 0.4rem var(--purple);
     overflow: hidden;
     color: var(--dark-grey);
@@ -45,5 +46,7 @@ display: flex;
     font-size: var(--font-size-base);
     font-weight: 500;
 `
+
+
 
 export { OperationDetailsStyled, OperationDetailsInfoStyled };

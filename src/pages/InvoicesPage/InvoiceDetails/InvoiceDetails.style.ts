@@ -4,8 +4,10 @@ const InvoiceDetailsStyled = styled.section`
     display: flex;
     flex-direction: column;
     width: auto;
+    max-width: 1000px;
     background: var(--white-smoke);
     padding: 1rem;
+    margin: 1rem;
     border-radius: 1rem;
     border: 0.3rem solid var(--purple);
     box-shadow: 0.2rem 0.4rem var(--purple);
