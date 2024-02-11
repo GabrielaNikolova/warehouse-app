@@ -85,27 +85,27 @@ export default function OperationsUpdateForm() {
                                 <>
                                     {...formik.initialValues.products.map((product, index) => (
                                         <ProductsContainer key={index}>
-                                            <Field
-                                                as="select"
+                                            <InputField
+                                                className={'product-input'}
+                                                type="name"
                                                 id={`product-${product.name}`}
                                                 name={`products[${index}].product`}
+                                                label="Product"
                                                 disabled={true}
                                                 value={formik.initialValues.products[index].name}
-                                            >
-                                                <Option value={formik.values.products[index].name}>
-                                                    {formik.values.products[index].name}
-                                                </Option>
-                                            </Field>
+                                                defaultValue={formik.initialValues.products[index].name}
+                                            />
                                             <InputField
+                                                className={'product-input'}
                                                 type="number"
                                                 name={`products[${index}].productQuantity`}
                                                 label="Quantity"
-                                                onChange={formik.handleChange}
                                                 disabled={true}
                                                 value={formik.values.products[index].productQuantity}
                                                 defaultValue={formik.values.products[index].productQuantity}
                                             />
                                             <InputField
+                                                className={'product-input'}
                                                 type="number"
                                                 name={`products[${index}].productPrice`}
                                                 label="Price"

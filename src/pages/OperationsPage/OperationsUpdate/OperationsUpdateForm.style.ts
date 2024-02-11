@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 const OperationUpdateFormStyled = styled.form`
-    // margin: 1rem auto;
     display: flex;
     flex-direction: column;
     justify-items: center;
     width: auto;
     height: auto;
-    //min-width: 300px;
     background-color: var(--purple);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 20px 0 var(--dark-grey);
     min-width: 300px;
     padding: 0.3rem;
+    margin: 1rem;
 
     h3 {
         color: var(--white-smoke);
@@ -23,6 +22,13 @@ const SelectStyle = styled.div`
     margin-top: 1rem;
     margin-inline-end: auto;
     margin-inline-start: auto;
+
+    &.products-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
 
     label {
         font-weight: 500;
@@ -37,13 +43,13 @@ const SelectStyle = styled.div`
         font-size: var(--font-size-sm);
         font-weight: 400;
         width: 250px;
+        height: fit-content;
         color: var(--dark-grey);
         background: var(white-smoke);
         border: 0.17rem solid var(--dark-grey);
         box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
         border-radius: 8px;
         padding: 10px 14px;
-        margin-bottom: 1rem;
     }
 
     select::placeholder {
@@ -59,6 +65,10 @@ const SelectStyle = styled.div`
         margin-left: 1.2rem;
         margin-top: 0.4rem;
     }
+
+    &.remove-product-btn {
+        margin: 0;
+    }
 `;
 
 const Option = styled.option`
@@ -72,15 +82,16 @@ const Option = styled.option`
 `;
 
 const ProductsContainer = styled.div`
-display: flex;
-justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
 
-style{
-    display:flex;
-    justify-content: space-between;
+    & div .product-input{
+    width:fit-content;
+    }
+`;
 
-}
-
-`
-
-export { OperationUpdateFormStyled, SelectStyle, Option , ProductsContainer};
+export { OperationUpdateFormStyled, SelectStyle, Option, ProductsContainer };

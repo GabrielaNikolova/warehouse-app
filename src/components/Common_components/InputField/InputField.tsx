@@ -10,6 +10,7 @@ export default function InputField({ ...props }: InputProps) {
                 id={props.label}
                 value={props.value}
                 name={props.name}
+                className={props.className}
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 disabled={props.disabled}

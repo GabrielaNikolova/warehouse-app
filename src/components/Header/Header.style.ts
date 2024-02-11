@@ -5,7 +5,7 @@ const Nav = styled.nav`
     justify-content: right;
     align-items: center;
     position: relative;
-    width: 100%;
+    width: auto;
     z-index: 10;
 
     .nav-links {
@@ -35,18 +35,17 @@ const Nav = styled.nav`
 
 const HeaderStyle = styled.header`
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
-    width: 100%;
-    width: calc(100% - 100px);
+    width: auto;
     height: var(--nav-heigth);
     background-color: var(--dark-grey);
-    padding: 0px 5rem 0px 5rem;
+    padding: 0px 3rem 0px 5rem;
 `;
 
 export { Nav, HeaderStyle };

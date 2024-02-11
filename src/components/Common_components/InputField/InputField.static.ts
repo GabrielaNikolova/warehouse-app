@@ -6,6 +6,7 @@ interface InputProps {
     label?: string;
     value?: string | number;
     name?: string;
+    className?: string;
     placeholder?: string;
     error?: boolean;
     errorMessage?: string;

@@ -96,4 +96,12 @@ const Container = styled.section`
     }
 `;
 
-export { GlobalStyle, Container };
+const DivFlexStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+`;
+
+export { GlobalStyle, Container, DivFlexStyled };

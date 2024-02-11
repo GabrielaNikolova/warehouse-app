@@ -27,7 +27,7 @@ const BtnStyle = styled.button`
         transform: translate3d(0, 2px, 0);
     }
 
-    &.delete-btn{
+    &.delete-btn, &.remove-btn{
         background-color: var(--dark-grey);
         margin: 0.5rem;
     }

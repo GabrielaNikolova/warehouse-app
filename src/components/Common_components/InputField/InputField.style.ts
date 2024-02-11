@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const InputStyle = styled.div`
     margin-top: 1rem;
@@ -39,7 +39,11 @@ const InputStyle = styled.div`
     input:focus {
     }
 
-    .error {
+    input.number-field {
+        width: 10rem;
+    }
+
+    &.error {
         color: var(--red);
         font-size: var(--font-size-sm);
         font-weight: 500;
