@@ -7,7 +7,10 @@ const HamburgerMenuStyled = styled.div`
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1;
+    z-index: 10;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `;
 
 const Div1 = styled.div`
