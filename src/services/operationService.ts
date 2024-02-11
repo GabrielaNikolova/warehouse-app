@@ -1,6 +1,7 @@
 import { Detail } from '../pages/OperationsPage/OperationDetails/OperationDetails.static';
 import { OperationCreate } from '../pages/OperationsPage/OperationsCreate/OperationsCreateForm.static';
 import { Operation } from '../pages/OperationsPage/OperationsTable/OperationsTable.static';
+import { OperationUpdate, OperationUpdateValues } from '../pages/OperationsPage/OperationsUpdate/OperationsUpdateForm.static';
 import { Product } from '../pages/ProductsPage/ProductsTable/ProductsTable.static';
 import { get, post, patch, del } from './fetchService';
 
@@ -29,8 +30,8 @@ const create = async ({
     return await post(`${baseUrl}/create`, { type, date, client, warehouse, warehouseIn, products });
 };
 
-const update = async ({ id, name, type, unit, category }: Product): Promise<Product> => {
-    return await patch(`${baseUrl}/${id}`, { name, type, unit, category });
+const update = async ({ id, date, client, products }: OperationUpdateValues): Promise<Operation> => {
+    return await patch(`${baseUrl}/${id}`, { date, client, products });
 };
 
 const delOperation = async (id: string) => {

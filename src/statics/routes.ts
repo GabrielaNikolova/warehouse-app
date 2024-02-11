@@ -12,7 +12,7 @@ export const routes = {
     operations: '/operations',
     operationsCreate: '/operations/create',
     operationsDetails: '/operations/details/:id',
-    operationsUpdate: '/operations/:id',
+    operationsUpdate: '/operations/details/update/:id',
     invoices: '/invoices',
     invoiceDetails: '/invoices/details/:id',
     login: '/login',

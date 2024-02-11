@@ -22,6 +22,7 @@ import OperationsCreateForm from './pages/OperationsPage/OperationsCreate/Operat
 import OperationDetails from './pages/OperationsPage/OperationDetails/OperationDetails';
 import Invoices from './pages/InvoicesPage/InvoicePage';
 import InvoiceDetails from './pages/InvoicesPage/InvoiceDetails/InvoiceDetails';
+import OperationsUpdateForm from './pages/OperationsPage/OperationsUpdate/OperationsUpdateForm';
 
 function App() {
     return (
@@ -53,6 +54,7 @@ function App() {
                         <Route index={true} element={<Operations />} />
                         <Route path={routes.operationsDetails} element={<OperationDetails />} />
                         <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
+                        <Route path={routes.operationsUpdate} element={<OperationsUpdateForm />} />
                     </Route>
                     <Route path={routes.invoices}>
                         <Route index={true} element={<Invoices />} />

@@ -71,6 +71,16 @@ export default function OperationDetails() {
                         />
                     )}
                     <FormButton
+                        className={'edit-btn'}
+                        type={'button'}
+                        btnText={'Update'}
+                        onClick={() => {
+                            navigate(`${routes.operations}/details/update/${operation.id}`, {
+                                state: { currentOperation: operation, operationProducts: data },
+                            });
+                        }}
+                    />
+                    <FormButton
                         className={'delete-btn'}
                         type={'button'}
                         btnText={'Delete'}

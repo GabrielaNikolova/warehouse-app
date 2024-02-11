@@ -10,6 +10,7 @@ interface InputProps {
     error?: boolean;
     errorMessage?: string;
     disabled?: boolean;
+    defaultValue?: string | number;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     readonly?: boolean;
 }

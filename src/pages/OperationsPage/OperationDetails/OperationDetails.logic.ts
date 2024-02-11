@@ -51,6 +51,7 @@ function getOperationDetails() {
                 for (const detail of detailsData) {
                     const product = await getProduct(detail.product);
                     const modifiedProduct: ProductForOpDetails = {
+                        id: product.id,
                         name: product.name,
                         type: product.type,
                         category: product.category,
