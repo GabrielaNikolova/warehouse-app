@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Bar, Div1, Div2, HamburgerMenuStyled } from './hamburgerMenu.style';
 import { navItems } from '../Header/Header.static';
 import { useAuth } from '../../../contexts/AuthContext/AuthContext';
-import Navbar from '../Header/Navbar';
 import { NavLink } from 'react-router-dom';
 
 export default function HamburgerMenu() {
