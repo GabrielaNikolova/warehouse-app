@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Logout from './components/Logout/Logout.logic';
 import Clients from './pages/ClientsPage/ClientsPage';
-import { AuthProvider, useAuth } from './contexts/AuthContext/AuthContext';
+import { AuthProvider } from './contexts/AuthContext/AuthContext';
 import { routes } from './statics/routes';
 import { GlobalStyle } from './components/Common_components/Global.style';
 import WarehouseCreateForm from './pages/WarehousePage/WarehouseCreate/WarehouseCreateForm';
@@ -24,6 +24,7 @@ import Invoices from './pages/InvoicesPage/InvoicePage';
 import InvoiceDetails from './pages/InvoicesPage/InvoiceDetails/InvoiceDetails';
 import OperationsUpdateForm from './pages/OperationsPage/OperationsUpdate/OperationsUpdateForm';
 import ProtectedRoute from './components/Common_components/ProtectedRoute/ProtectedRoute';
+import NotFound from './components/NotFound';
 
 function App() {
     return (
@@ -63,6 +64,7 @@ function App() {
                             <Route path={routes.invoiceDetails} element={<InvoiceDetails />} />
                         </Route>
                     </Route>
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>
