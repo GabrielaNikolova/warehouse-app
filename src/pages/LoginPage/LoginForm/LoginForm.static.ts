@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 
 interface User {
     id?: string;
+    username?:string
     email?: string;
     password?: string;
     role?: string;

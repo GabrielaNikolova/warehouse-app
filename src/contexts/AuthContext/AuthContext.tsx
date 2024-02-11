@@ -4,8 +4,10 @@ import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { User } from '../../pages/LoginPage/LoginForm/LoginForm.static';
 import { UserRegister } from '../../pages/RegisterPage/RegisterForm/RegisterForm.static';
+import { routes } from '../../statics/routes';
 
 interface AuthContextType {
+    currentUser: User;
     isAuthenticated: boolean;
     loginUser: (user: User) => Promise<User | undefined>;
     registerUser: (user: UserRegister) => Promise<UserRegister | undefined>;
@@ -19,6 +21,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
     const navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useState<User>({});
 
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
         const authToken = localStorage.getItem('access_token');
@@ -29,7 +32,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const authentication = () => {
         const authToken = localStorage.getItem('access_token');
         const isValid = authToken && isTokenValid(authToken);
-        return isValid ? <Outlet /> : <Navigate to={'/login'} />;
+        return isValid ? <Outlet /> : <Navigate to={routes.login} />;
     };
     authentication();
 
@@ -58,8 +61,11 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
             if (auth.access_token) {
                 localStorage.setItem('access_token', JSON.stringify(auth));
                 setIsAuthenticated(true);
+                setCurrentUser(auth);
                 return auth;
             }
+
+            console.log('user', currentUser);
         } catch (error) {}
     };
 
@@ -87,7 +93,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     };
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, loginUser, registerUser, logoutUser }}>
+        <AuthContext.Provider value={{ currentUser, isAuthenticated, loginUser, registerUser, logoutUser }}>
             {children}
         </AuthContext.Provider>
     );

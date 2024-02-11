@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Logout from './components/Logout/Logout.logic';
 import Clients from './pages/ClientsPage/ClientsPage';
-import { AuthProvider } from './contexts/AuthContext/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext/AuthContext';
 import { routes } from './statics/routes';
 import { GlobalStyle } from './components/Common_components/Global.style';
 import WarehouseCreateForm from './pages/WarehousePage/WarehouseCreate/WarehouseCreateForm';
@@ -23,6 +23,7 @@ import OperationDetails from './pages/OperationsPage/OperationDetails/OperationD
 import Invoices from './pages/InvoicesPage/InvoicePage';
 import InvoiceDetails from './pages/InvoicesPage/InvoiceDetails/InvoiceDetails';
 import OperationsUpdateForm from './pages/OperationsPage/OperationsUpdate/OperationsUpdateForm';
+import ProtectedRoute from './components/Common_components/ProtectedRoute/ProtectedRoute';
 
 function App() {
     return (
@@ -33,32 +34,34 @@ function App() {
                 <Routes>
                     <Route path={routes.login} element={<LoginPage />} />
                     <Route path={routes.register} element={<RegisterPage />} />
-                    <Route path={routes.logout} element={<Logout />} />
-                    <Route path={routes.dashboard} element={<DashboardPage />} />
-                    <Route path={routes.clients}>
-                        <Route index={true} element={<Clients />} />
-                        <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
-                        <Route path={routes.clientsUpdate} element={<ClientUpdateForm />} />
-                    </Route>
-                    <Route path={routes.warehouses}>
-                        <Route index={true} element={<Warehouses />} />
-                        <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
-                        <Route path={routes.warehousesUpdate} element={<WarehouseUpdateForm />} />
-                    </Route>
-                    <Route path={routes.products}>
-                        <Route index={true} element={<Products />} />
-                        <Route path={routes.productsCreate} element={<ProductCreateForm />} />
-                        <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
-                    </Route>
-                    <Route path={routes.operations}>
-                        <Route index={true} element={<Operations />} />
-                        <Route path={routes.operationsDetails} element={<OperationDetails />} />
-                        <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
-                        <Route path={routes.operationsUpdate} element={<OperationsUpdateForm />} />
-                    </Route>
-                    <Route path={routes.invoices}>
-                        <Route index={true} element={<Invoices />} />
-                        <Route path={routes.invoiceDetails} element={<InvoiceDetails />} />
+                    <Route element={<ProtectedRoute />}>
+                        <Route path={routes.logout} element={<Logout />} />
+                        <Route path={routes.dashboard} element={<DashboardPage />} />
+                        <Route path={routes.clients}>
+                            <Route index={true} element={<Clients />} />
+                            <Route path={routes.clientsCreate} element={<ClientCreateForm />} />
+                            <Route path={routes.clientsUpdate} element={<ClientUpdateForm />} />
+                        </Route>
+                        <Route path={routes.warehouses}>
+                            <Route index={true} element={<Warehouses />} />
+                            <Route path={routes.warehousesCreate} element={<WarehouseCreateForm />} />
+                            <Route path={routes.warehousesUpdate} element={<WarehouseUpdateForm />} />
+                        </Route>
+                        <Route path={routes.products}>
+                            <Route index={true} element={<Products />} />
+                            <Route path={routes.productsCreate} element={<ProductCreateForm />} />
+                            <Route path={routes.productsUpdate} element={<ProductUpdateForm />} />
+                        </Route>
+                        <Route path={routes.operations}>
+                            <Route index={true} element={<Operations />} />
+                            <Route path={routes.operationsDetails} element={<OperationDetails />} />
+                            <Route path={routes.operationsCreate} element={<OperationsCreateForm />} />
+                            <Route path={routes.operationsUpdate} element={<OperationsUpdateForm />} />
+                        </Route>
+                        <Route path={routes.invoices}>
+                            <Route index={true} element={<Invoices />} />
+                            <Route path={routes.invoiceDetails} element={<InvoiceDetails />} />
+                        </Route>
                     </Route>
                 </Routes>
             </AuthProvider>
