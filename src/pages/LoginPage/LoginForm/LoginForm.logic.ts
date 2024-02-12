@@ -2,6 +2,7 @@ import { useAuth } from "../../../contexts/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginShema, User } from "./LoginForm.static";
+import { routes } from "../../../statics/routes";
 
 export default function login() {
 
@@ -29,7 +30,7 @@ export default function login() {
                 } else {
                     alert('User logged in successfully!');
                     resetForm();
-                    navigate('/clients');
+                    navigate(routes.dashboard);
                 }
             } catch (e) {
                 const errorMessage = e instanceof Error ? e.message : 'An unexpected error occurred.';
