@@ -3,6 +3,7 @@ import { Nav, HeaderStyle } from './Header.style';
 import { navItems } from './Header.static';
 import { useAuth } from '../../../contexts/AuthContext/AuthContext';
 import HamburgerMenu from '../HamburgerMenu/HamburgeMenu';
+import UserProfile from '../../UserProfile/UserProfile';
 
 export default function Header() {
     const { isAuthenticated } = useAuth();
@@ -10,6 +11,7 @@ export default function Header() {
         <HeaderStyle>
             <Nav>
                 <HamburgerMenu />
+                {isAuthenticated ? <UserProfile /> : null}
                 <Navbar
                     navItems={
                         isAuthenticated

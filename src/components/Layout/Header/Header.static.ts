@@ -7,11 +7,10 @@ const navItems = [
     { name: 'Invoices', to: '/invoices', private: true },
     { name: 'Login', to: '/login', private: false },
     { name: 'Register', to: '/register', private: false },
-    { name: 'Log out', to: '/logout', private: true },
 ];
 
 interface NavBarProps {
-    navItems: Array<{ name: string; to: string }>;
+    navItems: Array<{ name: string; to: string; private: boolean }>;
 }
 
 export { navItems };

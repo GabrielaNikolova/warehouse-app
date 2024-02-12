@@ -1,5 +1,4 @@
 import Layout from '../components/Layout/Layout';
-import NotFound from '../components/NotFound/NotFound';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import UserRoleHOC from '../components/UserRoleHOC/UserRoleHOC';
 import Logout from '../components/Logout/Logout.logic';
@@ -22,28 +21,29 @@ import WarehouseCreateForm from '../pages/WarehousePage/WarehouseCreate/Warehous
 import WarehouseUpdateForm from '../pages/WarehousePage/WarehouseUpdate/WarehouseUpdateForm';
 import Warehouses from '../pages/WarehousePage/WarehousesPage';
 import { routes as route } from './routes';
+import UserProfile from '../components/UserProfile/UserProfile';
 
 function routes() {
     return [
         {
             element: <Layout />,
             children: [
-                { path: route.login, element: <LoginPage />, name: 'Login', private: false },
-                { path: route.register, element: <RegisterPage />, name: 'Register', private: false },
+                { path: route.login, element: <LoginPage /> },
+                { path: route.register, element: <RegisterPage /> },
                 {
                     path: '/',
                     element: <ProtectedRoute />,
                     private: true,
                     children: [
-                        { path: route.dashboard, element: <Reports />, name: 'Dashboard' },
-                        { path: route.clients, element: <Clients />, name: 'Clients' },
-                        { path: route.warehouses, element: <Warehouses />, name: 'Warehouses' },
-                        { path: route.products, element: <Products />, name: 'Products' },
-                        { path: route.operations, element: <Operations />, name: 'Operations' },
+                        { path: route.dashboard, element: <Reports /> },
+                        { path: route.clients, element: <Clients /> },
+                        { path: route.warehouses, element: <Warehouses /> },
+                        { path: route.products, element: <Products /> },
+                        { path: route.operations, element: <Operations /> },
                         { path: route.operationsDetails, element: <OperationDetails /> },
-                        { path: route.invoices, element: <Invoices />, name: 'Invoices' },
+                        { path: route.invoices, element: <Invoices /> },
                         { path: route.invoiceDetails, element: <InvoiceDetails /> },
-                        { path: route.logout, element: <Logout />, name: 'Logout' },
+                        { path: route.logout, element: <Logout /> },
                         {
                             path: '/',
                             element: <UserRoleHOC />,
@@ -60,7 +60,6 @@ function routes() {
                         },
                     ],
                 },
-                { path: route.notFound, element: <NotFound /> },
             ],
         },
     ];

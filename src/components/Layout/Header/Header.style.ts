@@ -49,7 +49,7 @@ const HeaderStyle = styled.header`
     width: auto;
     height: var(--nav-heigth);
     background-color: var(--dark-grey);
-    padding: 0px 3rem 0px 5rem;
+    padding: 0px 10rem 0px 5rem;
 
     @media (max-width: 768px) {
             height: 6rem;
