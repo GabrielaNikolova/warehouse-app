@@ -52,11 +52,12 @@ const Div2 = styled.div`
     width: auto;
     height: 100%;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    visibility: hidden;
+    display: none;
 
     &.menu.open {
         transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
         visibility: visible;
+        display: block;
     }
 
     & ul {

@@ -50,6 +50,10 @@ const HeaderStyle = styled.header`
     height: var(--nav-heigth);
     background-color: var(--dark-grey);
     padding: 0px 3rem 0px 5rem;
+
+    @media (max-width: 768px) {
+            height: 6rem;
+        }
 `;
 
 export { Nav, HeaderStyle };

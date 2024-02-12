@@ -16,6 +16,10 @@ const OperationDetailsStyled = styled.section`
     font-size: var(--font-size-base);
     font-weight: 500;
 
+    @media (max-width: 768px) {
+        overflow-y: auto;
+    }
+
     h3 {
         color: var(--white-smoke);
         background-color: var(--purple);
@@ -35,6 +39,8 @@ const OperationDetailsStyled = styled.section`
         margin:  0.5rem 0;
         font-weight: 500;
     }
+
+    
 `;
 const OperationDetailsInfoStyled = styled.div`
 display: flex;

@@ -16,6 +16,10 @@ const InvoiceDetailsStyled = styled.section`
     font-size: var(--font-size-base);
     font-weight: 500;
 
+    @media (max-width: 768px) {
+            overflow-y: auto;
+        }
+
     h3 {
         color: var(--white-smoke);
         background-color: var(--purple);
