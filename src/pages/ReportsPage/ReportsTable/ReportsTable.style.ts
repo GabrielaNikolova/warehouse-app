@@ -67,7 +67,11 @@ const ContainerReports = styled.section`
         padding-top: 15rem;
     }
 
-    & h2{
+    & h2 {
+        text-align: center;
+    }
+
+    h3 {
         text-align: center;
     }
 `;
@@ -79,9 +83,13 @@ const DivFlexStyledReports = styled.div`
     align-items: center;
     width: auto;
 
-    @media all and (max-width: 470px) {
     
+
+    @media all and (max-width: 470px) {
+        h3 {
+        text-align: center;
+    }
     }
 `;
 
-export { TableStyled , ContainerReports, DivFlexStyledReports};
+export { TableStyled, ContainerReports, DivFlexStyledReports };
